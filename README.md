@@ -1,6 +1,5 @@
 # Project-Innara
 Hello everyone, 
-
 Project Innara is a toy language/compiler project for my small microcontroller(EK-TM4C123GXL).
 EK-TM4C123GXL is an ARM-Archititure microccontroller.  
 
@@ -10,3 +9,8 @@ initial project plan as of now:
   -> lower it to LLVM 
 
   
+thoughts on 3/6/2026
+
+it's always good to change your mind on yout approach on things. 
+
+i have decided to build on more modern approach, the compiler will now gets lowered to llvm, everything is gonna be handled in cpp from now on.   
