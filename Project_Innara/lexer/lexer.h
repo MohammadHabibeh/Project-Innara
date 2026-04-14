@@ -4,6 +4,8 @@
 
 enum class TokenType {
 	empty,
+	int_type;
+	function_type;
 	eof,
 	integer,
 	minus,
@@ -23,6 +25,7 @@ Token is_operation(const std::string& str, int p);
 std::string parse_int(const std::string& str, int p);
 Token is_integer(const std::string& str, int p);
 Token is_eof(const std::string& str, int p);
+Token is_fun(const std::string& str, int p);
 std::vector<Token> Tokenizer(const std::string& str); 	
 
 class lex{

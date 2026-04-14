@@ -1,27 +1,12 @@
 #include<iostream>
+#include<memory>
 #include "../lexer/lexer.h"
 #include "parser.h"
 #include "AST.h"
-
-
-//grammar
-// Expr -> <Term><ExprPrime>
-// ExprPrime -> +<Term><ExprPrime> 
-// 		| - <Term>ExprPrime>
-// 		| e
-// Term -> <Factor> <TermPrime>
-//TermPrime -> *<Factor><TermPrime>
-//		| / <Factor><TermPrime>
-//		| e
-//Factor -> id| Num | <Expr>
-//FO(expr) = { eof, ) }
-//
-//FO(ExprPRime) = { eof, ) }
-//FO(TERM) = { eof , ) , + , -}
-//FO(Term PRime) = { eof, ) + ,-}
-//FO(Factor) = { eof, ) , + , -, *, /}
-
-
+//#project innara
+//fun (int hello, int world) -> int {  
+//	ret hello + world;
+//}	
 std::unique_ptr<ExprAST> Parse(lex& Tokens){
 	return ExprPrime(Tokens);
 }
@@ -57,10 +42,15 @@ std::unique_ptr<ExprAST> Factor(lex& Tokens){
 
 }
 int main(){
-	std::string str("1+1+1"); 
+	std::string str("1+1+1+1"); 
 	lex lexer(str);
 	auto a = Parse(lexer);
-	std::cout<<a->print();
+	//BinaryOperation* Bin = dynamic_cast<BinaryOperation*>(a.get()); 
+	//if(Bin != nullptr){
+//		std::cout<< Bin->rhs;	
+//	}
+	printvisit print;
+	a->accept(print);
 	return 0;
 }
 //program Innara() {
